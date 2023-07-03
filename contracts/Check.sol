@@ -9,16 +9,14 @@ contract Check {
     function checkDealStatus(
         uint64 _dealID
     ) public returns (MarketTypes.GetDealActivationReturn memory) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
+        MarketTypes.GetDealActivationReturn memory ret = MarketAPI.getDealActivation(_dealID);
         return ret;
     }
 
     function checkDealStatusData(
         uint64 _dealID
     ) public returns (MarketTypes.GetDealActivationReturn memory, int, int) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
+        MarketTypes.GetDealActivationReturn memory ret = MarketAPI.getDealActivation(_dealID);
         return (
             ret,
             CommonTypes.ChainEpoch.unwrap(ret.terminated),
@@ -28,12 +26,8 @@ contract Check {
 
     function checkDealStatusData1(
         uint64 _dealID
-    )
-        public
-        returns (MarketTypes.GetDealActivationReturn memory, int64, int64)
-    {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
+    ) public returns (MarketTypes.GetDealActivationReturn memory, int64, int64) {
+        MarketTypes.GetDealActivationReturn memory ret = MarketAPI.getDealActivation(_dealID);
         return (
             ret,
             CommonTypes.ChainEpoch.unwrap(ret.terminated),
@@ -42,17 +36,13 @@ contract Check {
     }
 
     function getTerminalTime(uint64 _dealID) public returns (int64) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
+        MarketTypes.GetDealActivationReturn memory ret = MarketAPI.getDealActivation(_dealID);
         int64 terminal = CommonTypes.ChainEpoch.unwrap(ret.terminated);
         return terminal;
     }
 
-    function getTerminalTimeEpoch(
-        uint64 _dealID
-    ) public returns (CommonTypes.ChainEpoch) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
+    function getTerminalTimeEpoch(uint64 _dealID) public returns (CommonTypes.ChainEpoch) {
+        MarketTypes.GetDealActivationReturn memory ret = MarketAPI.getDealActivation(_dealID);
         return ret.terminated;
     }
 }
