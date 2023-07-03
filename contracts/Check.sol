@@ -43,8 +43,6 @@ contract Check {
 
     function getTerminalTimeEpoch(uint64 _dealID) public returns (CommonTypes.ChainEpoch) {
         MarketTypes.GetDealActivationReturn memory ret = MarketAPI.getDealActivation(_dealID);
-        // int64 terminal = CommonTypes.ChainEpoch.unwrap(ret.terminated);
         return ret.terminated;
-        // return terminal;
     }
 }
