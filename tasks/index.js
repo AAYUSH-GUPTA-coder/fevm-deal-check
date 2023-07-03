@@ -1,0 +1,1 @@
+exports.checkDeal = require("./check-deal")
