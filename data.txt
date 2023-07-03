@@ -1,0 +1,3 @@
+Contract Address : 0xb3cE41b4720842Cc26a071a5655CF34F9CDfA777
+
+command : yarn hardhat check-deal --contract 0xe5356e59d1A634681FBc8Df548CaC3c672162D62 --deal-id 561430
