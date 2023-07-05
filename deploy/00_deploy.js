@@ -15,5 +15,6 @@ module.exports = async ({ deployments }) => {
         from: wallet.address,
         args: [],
         log: true,
+        gasLimit: 1000000000, 
     })
 }
