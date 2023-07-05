@@ -16,7 +16,7 @@ task("check-deal", "check deal activation from deal ID")
         //this is what you will call to interact with the deployed contract
         const check = await Check.attach(contractAddr)
 
-        //send a transaction to call checkDealStatus() method
+       // send a transaction to call checkDealStatus() method
         // --- Calling checkDealStatus function ---
         let result = await check.checkDealStatus(dealId, {
             gasLimit: 1000000, //797263
@@ -35,15 +35,30 @@ task("check-deal", "check deal activation from deal ID")
         })
         console.log("The status of deal is:", fileDataResult1)
 
-        // --- Calling getTerminalTime function -------
-        let terminalTime = await check.getTerminalTime(dealId, {
+        // --- Calling getTerminationTime function -------
+        let terminationTime = await check.getTerminationTime(dealId, {
             gasLimit: 1000000, //797263
         })
-        console.log("The Terminal Time is:", terminalTime)
+        console.log("The Termination Time is:", terminationTime)
         
-        // --- Calling getTerminalTimeEpoch function -------
-        let TerminalTimeEpoch = await check.getTerminalTimeEpoch(dealId, {
+        // --- Calling getTerminationTimeEpoch function -------
+        let TerminationTimeEpoch = await check.getTerminationTimeEpoch(dealId, {
             gasLimit: 1000000, //797263
         })
-        console.log("The Terminal Time Epoch is:", TerminalTimeEpoch)
+        console.log("The Termination Time Epoch is:", TerminationTimeEpoch)
+
+        // --- Termination time ----
+        let getTermination =  await check.getTermination(dealId, {
+            gasLimit: 1000000, //797263
+        })
+        console.log("The Termination Time 1 Epoch is:", getTermination)
+
+        // --- check All function  ----
+        let checkAllFunctions =  await check.checkAllFunctions(dealId, {
+            gasLimit: 1000000, //797263
+        })
+        console.log("The Termination Time 1 Epoch is:", checkAllFunctions)
+
+        let client3 = await check.checkAllFunctions("290")
+        console.log(client3)
     })
