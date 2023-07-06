@@ -75,4 +75,28 @@ contract Check {
     ) public view returns (MarketTypes.GetDealActivationReturn memory) {
         return (MarketAPI.getDealActivation(_dealId));
     }
+
+    function getDealTime(
+        uint64 _dealId
+    ) public view returns (MarketTypes.GetDealTermReturn memory) {
+        return (MarketAPI.getDealTerm(_dealId));
+    }
+
+    function getDealEndEpoch(
+        uint64 _dealId
+    ) public view returns (CommonTypes.ChainEpoch) {
+        MarketTypes.GetDealTermReturn memory ret = MarketAPI.getDealTerm(
+            _dealId
+        );
+        return ret.end;
+    }
+
+    function getDealStartEpoch(
+        uint64 _dealId
+    ) public view returns (CommonTypes.ChainEpoch) {
+        MarketTypes.GetDealTermReturn memory ret = MarketAPI.getDealTerm(
+            _dealId
+        );
+        return ret.start;
+    }
 }
