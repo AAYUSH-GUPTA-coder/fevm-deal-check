@@ -42,20 +42,8 @@ task("check-deal", "check deal activation from deal ID")
         console.log("The Termination Epoch Time of deal is:", getDealEndEpoch)
 
         // --- getDealEndTime ---
-         let getDealEndTime =  await check.getDealEndEpoch(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The Termination Epoch Time of deal is:", getDealEndTime)
-
-        // --- getDealEndTime ---
          let getDealStartEpoch =  await check.getDealStartEpoch(dealId, {
             gasLimit: 1000000, //797263
-        })
+         })
         console.log("The starting Epoch Time is:", getDealStartEpoch)
-
-        // --- getDealEndTime ---
-         let getDealStartTime =  await check.getDealStartTime(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The starting Epoch Time is:", getDealStartTime)
     })
