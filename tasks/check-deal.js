@@ -18,10 +18,10 @@ task("check-deal", "check deal activation from deal ID")
 
        // send a transaction to call checkDealStatus() method
         // --- Calling checkDealStatus function ---
-        let result = await check.checkDealStatus(dealId, {
+        let checkDealStatus = await check.checkDealStatus(dealId, {
             gasLimit: 1000000, //797263
         })
-        console.log("The status of deal is:", result)
+        console.log("The status of deal is:", checkDealStatus)
 
         // --- check All function  ----
         let checkAllFunctions =  await check.checkAllFunctions(dealId, {
