@@ -14,62 +14,6 @@ contract Check {
         return ret;
     }
 
-    function checkDealStatusData(
-        uint64 _dealID
-    )
-        public
-        view
-        returns (MarketTypes.GetDealActivationReturn memory, int, int)
-    {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
-        return (
-            ret,
-            CommonTypes.ChainEpoch.unwrap(ret.terminated),
-            CommonTypes.ChainEpoch.unwrap(ret.activated)
-        );
-    }
-
-    function checkDealStatusData1(
-        uint64 _dealID
-    )
-        public
-        view
-        returns (MarketTypes.GetDealActivationReturn memory, int64, int64)
-    {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
-        return (
-            ret,
-            CommonTypes.ChainEpoch.unwrap(ret.terminated),
-            CommonTypes.ChainEpoch.unwrap(ret.activated)
-        );
-    }
-
-    function getTerminationTime(uint64 _dealID) public view returns (int64) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
-        int64 terminal = CommonTypes.ChainEpoch.unwrap(ret.terminated);
-        return terminal;
-    }
-
-    function getTermination(
-        uint64 _dealID
-    ) public view returns (CommonTypes.ChainEpoch) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
-        CommonTypes.ChainEpoch terminal = ret.terminated;
-        return terminal;
-    }
-
-    function getTerminationTimeEpoch(
-        uint64 _dealID
-    ) public view returns (CommonTypes.ChainEpoch) {
-        MarketTypes.GetDealActivationReturn memory ret = MarketAPI
-            .getDealActivation(_dealID);
-        return ret.terminated;
-    }
-
     function checkAllFunctions(
         uint64 _dealId
     ) public view returns (MarketTypes.GetDealActivationReturn memory) {
