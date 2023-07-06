@@ -23,44 +23,11 @@ task("check-deal", "check deal activation from deal ID")
         })
         console.log("The status of deal is:", result)
 
-        // --- Calling checkDealStatusData function  ----
-        let fileDataResult = await check.checkDealStatusData(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The status of deal is:", fileDataResult)
-
-        // --- Calling checkDealStatusData1 function ---
-        let fileDataResult1 = await check.checkDealStatusData1(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The status of deal is:", fileDataResult1)
-
-        // --- Calling getTerminationTime function -------
-        let terminationTime = await check.getTerminationTime(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The Termination Time is:", terminationTime)
-        
-        // --- Calling getTerminationTimeEpoch function -------
-        let TerminationTimeEpoch = await check.getTerminationTimeEpoch(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The Termination Time Epoch is:", TerminationTimeEpoch)
-
-        // --- Termination time ----
-        let getTermination =  await check.getTermination(dealId, {
-            gasLimit: 1000000, //797263
-        })
-        console.log("The Termination Time 1 Epoch is:", getTermination)
-
         // --- check All function  ----
         let checkAllFunctions =  await check.checkAllFunctions(dealId, {
             gasLimit: 1000000, //797263
         })
         console.log("The Termination Time 1 Epoch is:", checkAllFunctions)
-
-        let client3 = await check.checkAllFunctions("290")
-        console.log(client3)
 
         // --- getDealTime ---
          let getDealTime =  await check.getDealTime(dealId, {
